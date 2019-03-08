@@ -1,0 +1,87 @@
+package helpers.api.dolibarr.model;
+
+import java.util.ArrayList;
+import java.util.List;
+
+/**
+ * @author jtremeaux
+ */
+public class BankAccount {
+    public String label;
+    public String courant;
+    public String type;
+    public String bank;
+    public String clos;
+    public String rappro;
+    public String url;
+    public String code_banque;
+    public String code_guichet;
+    public String number;
+    public String cle_rib;
+    public String bic;
+    public String iban;
+    public String proprio;
+    public String owner_address;
+    public String state_id;
+    public String state_code;
+    public String state;
+    List<Object> type_lib = new ArrayList<>();
+    List<Object> status = new ArrayList<>();
+    public String account_number;
+    public String fk_accountancy_journal;
+    public String currency_code;
+    public String account_currency_code;
+    public String min_allowed;
+    public String min_desired;
+    public String comment;
+    public String date_solde;
+    public String id;
+    public String import_key;
+    List<Object> array_options = new ArrayList<>();
+    public String linkedObjectsIds;
+    public String canvas;
+    public String fk_project;
+    public String contact;
+    public String contact_id;
+    public String thirdparty;
+    public String user;
+    public String origin;
+    public String origin_id;
+    public String ref;
+    public String ref_ext;
+    public String statut;
+    public String country;
+    public String country_id;
+    public String country_code;
+    public String barcode_type;
+    public String barcode_type_code;
+    public String barcode_type_label;
+    public String barcode_type_coder;
+    public String mode_reglement_id;
+    public String cond_reglement_id;
+    public String cond_reglement;
+    public String fk_delivery_address;
+    public String shipping_method_id;
+    public String modelpdf;
+    public String fk_account;
+    public String note_public;
+    public String note;
+    public String total_ht;
+    public String total_tva;
+    public String total_localtax1;
+    public String total_localtax2;
+    public String total_ttc;
+    public String lines;
+    public String fk_incoterms;
+    public String libelle_incoterms;
+    public String location_incoterms;
+    public String name;
+    public String lastname;
+    public String firstname;
+    public String civility_id;
+    public float solde;
+    public String domiciliation;
+    public String accountancy_journal;
+    public float date_creation;
+    public float date_update;
+}

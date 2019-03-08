@@ -1,0 +1,20 @@
+self: play -> dolibarr 1.0.0
+
+configurations:
+    - provided:
+          exclude: true
+
+require:
+    - play
+    - com.squareup.okhttp3 -> okhttp 3.13.1
+    - com.squareup.okio -> okio 1.17.2
+    - org.mockito -> mockito-core 2.24.0
+    - com.google.guava -> guava 23.5-jre
+    - com.sismics.sapparot -> sapparot 1.0.0
+
+repositories:
+    - sismicsNexus:
+          type: iBiblio
+          root: "https://nexus.sismics.com/repository/com.sismics/"
+          contains:
+              - com.sismics.sapparot -> *

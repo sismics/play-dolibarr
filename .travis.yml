@@ -1,0 +1,15 @@
+sudo: required
+dist: trusty
+language: java
+env:
+  PLAY_VERSION=1.4.2
+before_script:
+  wget http://downloads.typesafe.com/play/${PLAY_VERSION}/play-${PLAY_VERSION}.zip;
+  unzip -q play-${PLAY_VERSION}.zip
+script:
+  if [ "$TRAVIS_BRANCH" == "release" ]; then
+  export version=`grep "^self" conf/dependencies.yml | awk '{print $4,"-",$5}' | sed 's/ //g'`;
+  play-${PLAY_VERSION}/play deps --sync;
+  zip -r ${version}.zip app conf lib src *.md LICENSE play.plugins;
+  curl -u "${NEXUS_USERNAME}:${NEXUS_PASSWORD}" -X PUT --upload-file ${version}.zip https://nexus.sismics.com/repository/sismics/${version}.zip;
+  fi

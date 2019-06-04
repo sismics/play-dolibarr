@@ -1,4 +1,4 @@
-self: play -> dolibarr 1.1.0
+self: play -> dolibarr 1.2.0
 
 configurations:
     - provided:
@@ -6,11 +6,9 @@ configurations:
 
 require:
     - play
-    - com.squareup.okhttp3 -> okhttp 3.13.1
-    - com.squareup.okio -> okio 1.17.2
     - org.mockito -> mockito-core 2.24.0
     - com.google.guava -> guava 27.1-jre
-    - com.sismics.sapparot -> sapparot 1.0.0
+    - com.sismics.sapparot -> sapparot 1.4.1
 
 repositories:
     - sismicsNexus:

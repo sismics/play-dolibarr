@@ -1,4 +1,4 @@
-self: play -> dolibarr 1.2.0
+self: play -> dolibarr 1.3.0
 
 configurations:
     - provided:

@@ -1,4 +1,6 @@
 ## Change Log
+### Version 1.5.0 (2020-04-06)
+- Add supplier invoice API 
 ### Version 1.4.0 (2020-04-06)
 - Add internal bank transfers
 ### Version 1.3.0 (2020-04-01)

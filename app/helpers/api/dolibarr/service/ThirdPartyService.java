@@ -5,7 +5,7 @@ import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.sismics.sapparot.string.StringUtil;
 import helpers.api.dolibarr.DolibarrClient;
-import helpers.api.dolibarr.model.ThirdParty;
+import helpers.api.dolibarr.model.thirdParty.ThirdParty;
 import org.apache.commons.io.IOUtils;
 
 import java.io.InputStreamReader;

@@ -1,4 +1,4 @@
-package helpers.api.dolibarr.model;
+package helpers.api.dolibarr.model.thirdParty;
 
 import java.util.ArrayList;
 import java.util.List;

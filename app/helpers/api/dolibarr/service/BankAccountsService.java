@@ -5,8 +5,10 @@ import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.sismics.sapparot.string.StringUtil;
 import helpers.api.dolibarr.DolibarrClient;
-import helpers.api.dolibarr.model.BankAccount;
-import helpers.api.dolibarr.model.BankAccountLine;
+import helpers.api.dolibarr.model.api.DolibarrApiResponse;
+import helpers.api.dolibarr.model.bankAccount.BankAccount;
+import helpers.api.dolibarr.model.bankAccount.BankAccountLine;
+import helpers.api.dolibarr.model.bankAccount.BankAccountsTransferModel;
 
 import java.io.InputStreamReader;
 import java.lang.reflect.Type;
@@ -84,4 +86,26 @@ public class BankAccountsService {
                     throw new RuntimeException("Error getting bank account lines, response was: " + StringUtil.toString(response.body()));
                 });
     }
+
+    /**
+     * Create an internal transfer between accounts.
+     *
+     * @param bankAccountsTransferModel The transfer model
+     * @return The response
+     */
+    public DolibarrApiResponse createInternalTransfer(BankAccountsTransferModel bankAccountsTransferModel) {
+        String json = new Gson().toJson(bankAccountsTransferModel);
+
+        HttpRequest request = dolibarrClient.authRequest(HttpRequest.newBuilder()
+                .uri(URI.create(dolibarrClient.getUrl("/bankaccounts/transfer"))))
+                .header("Content-Type", "application/json")
+                .POST(HttpRequest.BodyPublishers.ofString(json))
+                .build();
+        return dolibarrClient.execute(request,
+                (response) -> new Gson().fromJson(new JsonReader(new InputStreamReader(response.body())), DolibarrApiResponse.class),
+                (response) -> {
+                    throw new RuntimeException("Error creating internal transfer, response was: " + StringUtil.toString(response.body()));
+                });
+    }
+
 }

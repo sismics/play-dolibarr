@@ -1,33 +1,41 @@
-package helpers.api.dolibarr.model;
+package helpers.api.dolibarr.model.bankAccount;
 
-import java.math.BigDecimal;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 /**
  * @author jtremeaux
  */
-public class BankAccountLine {
-    public Integer id;
-    public String ref;
-    public String datec;
-    public Date dateo;
-    public Date datev;
-    public BigDecimal amount;
+public class BankAccount {
     public String label;
-    public String note;
-    public String fk_user_author;
-    public String fk_user_rappro;
-    public String fk_type;
+    public String courant;
+    public String type;
+    public String bank;
+    public String clos;
     public String rappro;
-    public String num_releve;
-    public String num_chq;
-    public String bank_chq;
-    public String fk_bordereau;
-    public String fk_account;
-    public String bank_account_label;
-    public String emetteur;
+    public String url;
+    public String code_banque;
+    public String code_guichet;
+    public String number;
+    public String cle_rib;
+    public String bic;
+    public String iban;
+    public String proprio;
+    public String owner_address;
+    public String state_id;
+    public String state_code;
+    public String state;
+    List<Object> type_lib = new ArrayList<>();
+    List<Object> status = new ArrayList<>();
+    public String account_number;
+    public String fk_accountancy_journal;
+    public String currency_code;
+    public String account_currency_code;
+    public String min_allowed;
+    public String min_desired;
+    public String comment;
+    public String date_solde;
+    public String id;
     public String import_key;
     List<Object> array_options = new ArrayList<>();
     public String linkedObjectsIds;
@@ -39,6 +47,7 @@ public class BankAccountLine {
     public String user;
     public String origin;
     public String origin_id;
+    public String ref;
     public String ref_ext;
     public String statut;
     public String country;
@@ -54,7 +63,9 @@ public class BankAccountLine {
     public String fk_delivery_address;
     public String shipping_method_id;
     public String modelpdf;
+    public String fk_account;
     public String note_public;
+    public String note;
     public String total_ht;
     public String total_tva;
     public String total_localtax1;
@@ -68,5 +79,9 @@ public class BankAccountLine {
     public String lastname;
     public String firstname;
     public String civility_id;
-    public String bank_account_ref;
+    public float solde;
+    public String domiciliation;
+    public String accountancy_journal;
+    public float date_creation;
+    public float date_update;
 }

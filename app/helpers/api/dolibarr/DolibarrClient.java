@@ -4,7 +4,7 @@ import com.sismics.sapparot.function.CheckedConsumer;
 import com.sismics.sapparot.function.CheckedFunction;
 import com.sismics.sapparot.http.HttpHelper;
 import helpers.api.dolibarr.service.BankAccountsService;
-import helpers.api.dolibarr.service.InvoiceService;
+import helpers.api.dolibarr.service.SupplierInvoiceService;
 import helpers.api.dolibarr.service.ThirdPartyService;
 import org.joda.time.DateTimeZone;
 import org.joda.time.format.DateTimeFormat;
@@ -29,7 +29,7 @@ public class DolibarrClient {
 
     private BankAccountsService bankAccountsService;
 
-    private InvoiceService invoiceService;
+    private SupplierInvoiceService supplierInvoiceService;
 
     private ThirdPartyService thirdPartyService;
 
@@ -46,11 +46,11 @@ public class DolibarrClient {
         client = createClient();
         if (isMock()) {
             bankAccountsService = mock(BankAccountsService.class);
-            invoiceService = mock(InvoiceService.class);
+            supplierInvoiceService = mock(SupplierInvoiceService.class);
             thirdPartyService = mock(ThirdPartyService.class);
         } else {
             bankAccountsService = new BankAccountsService(this);
-            invoiceService = new InvoiceService(this);
+            supplierInvoiceService = new SupplierInvoiceService(this);
             thirdPartyService = new ThirdPartyService(this);
         }
     }
@@ -83,8 +83,8 @@ public class DolibarrClient {
         return bankAccountsService;
     }
 
-    public InvoiceService getInvoiceService() {
-        return invoiceService;
+    public SupplierInvoiceService getSupplierInvoiceService() {
+        return supplierInvoiceService;
     }
 
     public ThirdPartyService getThirdPartyService() {

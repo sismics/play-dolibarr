@@ -94,12 +94,10 @@ public class BankAccountsService {
      * @return The response
      */
     public DolibarrApiResponse createInternalTransfer(BankAccountsTransferModel bankAccountsTransferModel) {
-        String json = new Gson().toJson(bankAccountsTransferModel);
-
         HttpRequest request = dolibarrClient.authRequest(HttpRequest.newBuilder()
                 .uri(URI.create(dolibarrClient.getUrl("/bankaccounts/transfer"))))
                 .header("Content-Type", "application/json")
-                .POST(HttpRequest.BodyPublishers.ofString(json))
+                .POST(HttpRequest.BodyPublishers.ofString(new Gson().toJson(bankAccountsTransferModel)))
                 .build();
         return dolibarrClient.execute(request,
                 (response) -> new Gson().fromJson(new JsonReader(new InputStreamReader(response.body())), DolibarrApiResponse.class),

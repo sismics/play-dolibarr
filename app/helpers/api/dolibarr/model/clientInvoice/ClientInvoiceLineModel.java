@@ -1,0 +1,80 @@
+package helpers.api.dolibarr.model.clientInvoice;
+
+import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+/**
+ * @author jtremeaux
+ */
+public class ClientInvoiceLineModel {
+    public Integer fk_facture;
+    public Integer fk_parent_line;
+    public String label;
+    public String desc;
+    public String localtax1_type;
+    public String localtax2_type;
+    public Integer fk_remise_except;
+    public String rang;
+    public Integer fk_fournprice;
+    public BigDecimal pa_ht;
+    public String marge_tx;
+    public Integer marque_tx;
+    public BigDecimal remise_percent;
+    public String special_code;
+    public String origin;
+    public Integer origin_id;
+    public Integer fk_code_ventilation;
+    public String date_start;
+    public String date_end;
+    public String ref;
+    public String product_ref;
+    public String libelle;
+    public String product_label;
+    public String product_desc;
+    public BigDecimal situation_percent;
+    public Integer fk_prev_id;
+    public BigDecimal multicurrency_subprice;
+    public BigDecimal multicurrency_total_ht;
+    public BigDecimal multicurrency_total_tva;
+    public BigDecimal multicurrency_total_ttc;
+    public BigDecimal qty;
+    public BigDecimal subprice;
+    public Integer product_type;
+    public Integer fk_product;
+    public String vat_src_code;
+    public BigDecimal tva_tx;
+    public BigDecimal localtax1_tx;
+    public BigDecimal localtax2_tx;
+    public BigDecimal total_ht;
+    public BigDecimal total_tva;
+    public BigDecimal total_localtax1;
+    public BigDecimal total_localtax2;
+    public BigDecimal total_ttc;
+    public Integer info_bits;
+    public Integer id;
+    public Integer rowid;
+    public Integer fk_unit;
+    public String import_key;
+    public List<String> array_options = new ArrayList<>();
+    public String linkedStrings_ids;
+    public String canvas;
+    public String ref_ext;
+    public String statut;
+    public String state;
+    public String state_id;
+    public String state_code;
+    public String last_main_doc;
+    public Integer fk_account;
+    public String lines;
+    public String date_creation;
+    public String date_validation;
+    public String date_modification;
+    public String description;
+    public Integer fk_product_type;
+    public Integer code_ventilation;
+    public Integer fk_accounting_account;
+    private Map<String, String> additional_properties = new HashMap<>();
+}

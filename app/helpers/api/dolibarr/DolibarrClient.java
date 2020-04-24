@@ -1,9 +1,13 @@
 package helpers.api.dolibarr;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.sismics.sapparot.function.CheckedConsumer;
 import com.sismics.sapparot.function.CheckedFunction;
 import com.sismics.sapparot.http.HttpHelper;
+import helpers.api.dolibarr.gson.TimestampTypeAdapter;
 import helpers.api.dolibarr.service.BankAccountsService;
+import helpers.api.dolibarr.service.ClientInvoiceService;
 import helpers.api.dolibarr.service.SupplierInvoiceService;
 import helpers.api.dolibarr.service.ThirdPartyService;
 import org.joda.time.DateTimeZone;
@@ -29,9 +33,13 @@ public class DolibarrClient {
 
     private BankAccountsService bankAccountsService;
 
+    private ClientInvoiceService clientInvoiceService;
+
     private SupplierInvoiceService supplierInvoiceService;
 
     private ThirdPartyService thirdPartyService;
+
+    private Gson gson;
 
     private static final DateTimeFormatter DOLIBARR_DATE_FORMATTER = DateTimeFormat.forPattern("dd/MM/yyyy");
 
@@ -44,12 +52,15 @@ public class DolibarrClient {
 
     public DolibarrClient() {
         client = createClient();
+        gson = new GsonBuilder().registerTypeAdapter(Date.class, new TimestampTypeAdapter()).create();
         if (isMock()) {
             bankAccountsService = mock(BankAccountsService.class);
+            clientInvoiceService = mock(ClientInvoiceService.class);
             supplierInvoiceService = mock(SupplierInvoiceService.class);
             thirdPartyService = mock(ThirdPartyService.class);
         } else {
             bankAccountsService = new BankAccountsService(this);
+            clientInvoiceService = new ClientInvoiceService(this);
             supplierInvoiceService = new SupplierInvoiceService(this);
             thirdPartyService = new ThirdPartyService(this);
         }
@@ -79,8 +90,16 @@ public class DolibarrClient {
         return client;
     }
 
+    public Gson getGson() {
+        return gson;
+    }
+
     public BankAccountsService getBankAccountsService() {
         return bankAccountsService;
+    }
+
+    public ClientInvoiceService getClientInvoiceService() {
+        return clientInvoiceService;
     }
 
     public SupplierInvoiceService getSupplierInvoiceService() {

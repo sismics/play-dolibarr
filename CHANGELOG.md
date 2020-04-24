@@ -1,4 +1,6 @@
 ## Change Log
+### Version 1.6.0 (2020-04-24)
+- Add client invoice API 
 ### Version 1.5.0 (2020-04-06)
 - Add supplier invoice API 
 ### Version 1.4.0 (2020-04-06)

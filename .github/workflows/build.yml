@@ -1,0 +1,41 @@
+name: Build and deploy Play module
+
+on:
+  push:
+    tags:
+    - 'v*'
+
+jobs:
+  build:
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Get the version
+        id: get_version
+        run: echo ::set-output name=VERSION::${GITHUB_REF/refs\/tags\/v/}
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Setup Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '2.x'
+      - name: Build
+        env:
+          PLAY_VERSION: 1.5.3
+        run: |
+          wget -nv http://downloads.typesafe.com/play/${PLAY_VERSION}/play-${PLAY_VERSION}.zip
+          unzip -q play-${PLAY_VERSION}.zip
+          play-${PLAY_VERSION}/play deps --sync
+          zip -r package.zip app conf lib src *.md LICENSE play.plugins
+      - name: Deploy
+        env:
+          NEXUS_USERNAME: ${{ secrets.NEXUS_USERNAME }}
+          NEXUS_PASSWORD: ${{ secrets.NEXUS_PASSWORD }}
+          VERSION: ${{ steps.get_version.outputs.VERSION }}
+        run: curl -u "${NEXUS_USERNAME}:${NEXUS_PASSWORD}" -X PUT --upload-file package.zip https://nexus.sismics.com/repository/sismics/dolibarr-${VERSION}.zip;
+      - name: Create Github Release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ github.ref }}
+          release_name: ${{ steps.get_version.outputs.VERSION }}

@@ -1,4 +1,6 @@
 ## Change Log
+### Version 1.7.0 (2020-12-28)
+- Deploy using Github Action
 ### Version 1.6.0 (2020-04-24)
 - Add client invoice API 
 ### Version 1.5.0 (2020-04-06)

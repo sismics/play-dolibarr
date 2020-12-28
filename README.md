@@ -1,3 +1,6 @@
+[![GitHub release](https://img.shields.io/github/release/sismics/play-dolibarr.svg?style=flat-square)](https://github.com/sismics/play-dolibarr/releases/latest)
+[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
+
 # play-dolibarr plugin
 
 This plugin adds [Dolibarr](https://www.dolibarr.org/) support to Play! Framework 1 applications.
@@ -10,7 +13,7 @@ This plugin adds [Dolibarr](https://www.dolibarr.org/) support to Play! Framewor
 
 ```
 require:
-    - dolibarr -> dolibarr 1.6.0
+    - dolibarr -> dolibarr 1.7.0
 
 repositories:
     - sismicsNexusRaw:

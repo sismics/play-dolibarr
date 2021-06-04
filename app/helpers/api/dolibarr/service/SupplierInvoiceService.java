@@ -50,7 +50,7 @@ public class SupplierInvoiceService {
      */
     public Integer payInvoice(Integer invoiceId, Integer accountId, Integer paymentMode, Date paymentDate) {
         var model = new SupplierinvoicesAddPaymentModel();
-        model.paiementid = paymentMode;
+        model.payment_mode_id = paymentMode;
         model.accountid = accountId;
         if (paymentDate != null) {
             model.datepaye = paymentDate.getTime() / 1000;

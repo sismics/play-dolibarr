@@ -7,7 +7,7 @@ import java.util.Date;
  */
 public class SupplierinvoicesAddPaymentModel {
     public Long datepaye = new Date().getTime() / 1000; /* Unix timestamp */
-    public Integer paiementid; /* Payment method */
+    public Integer payment_mode_id; /* Payment method */
     public String closepaidinvoices = "yes";
     public Integer accountid;
     public String num_paiement;

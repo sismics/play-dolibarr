@@ -1,4 +1,6 @@
 ## Change Log
+### Version 1.8.0 (2021-04-06)
+- Upgrade API to Dolibarr 13
 ### Version 1.7.0 (2020-12-28)
 - Deploy using Github Action
 ### Version 1.6.0 (2020-04-24)

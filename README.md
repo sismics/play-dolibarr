@@ -13,7 +13,7 @@ This plugin adds [Dolibarr](https://www.dolibarr.org/) support to Play! Framewor
 
 ```
 require:
-    - dolibarr -> dolibarr 1.8.0
+    - dolibarr -> dolibarr 1.8.1
 
 repositories:
     - sismicsNexusRaw:

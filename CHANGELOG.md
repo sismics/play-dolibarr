@@ -1,4 +1,6 @@
 ## Change Log
+### Version 1.8.1 (2022-02-23)
+- Fix client invoice payment
 ### Version 1.8.0 (2021-04-06)
 - Upgrade API to Dolibarr 13
 ### Version 1.7.0 (2020-12-28)

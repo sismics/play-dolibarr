@@ -7,7 +7,7 @@ import java.util.Date;
  */
 public class ClientInvoicePaymentModel {
     public Date datepaye;
-    public Integer paiementid;
+    public Integer paymentid;
     public String closepaidinvoices = "yes";
     public Integer accountid;
     public String num_paiement;

@@ -1,4 +1,6 @@
 ## Change Log
+### Version 1.8.2 (2023-05-09)
+- Complete supplier invoice API
 ### Version 1.8.1 (2022-02-23)
 - Fix client invoice payment
 ### Version 1.8.0 (2021-04-06)

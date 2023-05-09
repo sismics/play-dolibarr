@@ -6,7 +6,7 @@ import com.sismics.sapparot.string.StringUtil;
 import helpers.api.dolibarr.DolibarrClient;
 import helpers.api.dolibarr.model.clientInvoice.ClientInvoiceModel;
 import helpers.api.dolibarr.model.clientInvoice.ClientInvoicePaymentModel;
-import helpers.api.dolibarr.model.clientInvoice.InvoiceValidateModel;
+import helpers.api.dolibarr.model.clientInvoice.ClientInvoiceValidateModel;
 import org.apache.commons.io.IOUtils;
 
 import java.io.InputStreamReader;
@@ -72,7 +72,7 @@ public class ClientInvoiceService {
      * @param invoiceId The invoice ID
      * @param invoiceValidateModel The invoice validation model
      */
-    public String validateInvoice(Integer invoiceId, InvoiceValidateModel invoiceValidateModel) {
+    public String validateInvoice(Integer invoiceId, ClientInvoiceValidateModel invoiceValidateModel) {
         HttpRequest request = dolibarrClient.authRequest(HttpRequest.newBuilder()
                 .uri(URI.create(dolibarrClient.getUrl("/invoices/" + invoiceId + "/validate"))))
                 .header("Content-Type", "application/json")

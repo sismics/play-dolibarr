@@ -9,15 +9,17 @@ jobs:
   build:
     runs-on: ubuntu-20.04
     steps:
+      - name: Checkout
+        uses: actions/checkout@v4
       - name: Get the version
         id: get_version
-        run: echo ::set-output name=VERSION::${GITHUB_REF/refs\/tags\/v/}
-      - name: Checkout
-        uses: actions/checkout@v2
+        run: |
+          value=`grep -oP 'docker \K[\d\.]*' conf/dependencies.yml`
+          echo "VERSION=$value" >> $GITHUB_ENV
       - name: Setup Python
-        uses: actions/setup-python@v2
+        uses: LizardByte/setup-python-action@master
         with:
-          python-version: '2.x'
+          python-version: '2.7'
       - name: Build
         env:
           PLAY_VERSION: 1.5.3

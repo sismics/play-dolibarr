@@ -80,7 +80,7 @@ public class BankAccountsService {
         return dolibarrClient.execute(request,
                 (response) -> {
                     Type listType = new TypeToken<ArrayList<BankAccountLine>>(){}.getType();
-                    return new Gson().fromJson(new JsonReader(new InputStreamReader(response.body())), listType);
+                    return dolibarrClient.getGson().fromJson(new JsonReader(new InputStreamReader(response.body())), listType);
                 },
                 (response) -> {
                     throw new RuntimeException("Error getting bank account lines, response was: " + StringUtil.toString(response.body()));

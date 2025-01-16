@@ -11,7 +11,7 @@ import java.util.List;
 public class BankAccountLine {
     public Integer id;
     public String ref;
-    public String datec;
+    public Date datec;
     public Date dateo;
     public Date datev;
     public BigDecimal amount;

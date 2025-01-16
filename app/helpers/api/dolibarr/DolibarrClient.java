@@ -52,7 +52,9 @@ public class DolibarrClient {
 
     public DolibarrClient() {
         client = createClient();
-        gson = new GsonBuilder().registerTypeAdapter(Date.class, new TimestampTypeAdapter()).create();
+        gson = new GsonBuilder()
+                .registerTypeAdapter(Date.class, new TimestampTypeAdapter())
+                .create();
         if (isMock()) {
             bankAccountsService = mock(BankAccountsService.class);
             clientInvoiceService = mock(ClientInvoiceService.class);

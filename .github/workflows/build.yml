@@ -14,7 +14,7 @@ jobs:
       - name: Get the version
         id: get_version
         run: |
-          value=`grep -oP 'docker \K[\d\.]*' conf/dependencies.yml`
+          value=`grep -oP 'dolibarr \K[\d\.]*' conf/dependencies.yml`
           echo "VERSION=$value" >> $GITHUB_ENV
       - name: Setup Python
         uses: LizardByte/setup-python-action@master
@@ -32,7 +32,6 @@ jobs:
         env:
           NEXUS_USERNAME: ${{ secrets.NEXUS_USERNAME }}
           NEXUS_PASSWORD: ${{ secrets.NEXUS_PASSWORD }}
-          VERSION: ${{ steps.get_version.outputs.VERSION }}
         run: curl -u "${NEXUS_USERNAME}:${NEXUS_PASSWORD}" -X PUT --upload-file package.zip https://nexus.sismics.com/repository/sismics/dolibarr-${VERSION}.zip;
       - name: Create Github Release
         uses: actions/create-release@v1

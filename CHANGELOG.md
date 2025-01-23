@@ -1,4 +1,6 @@
 ## Change Log
+### Version 1.8.4 (2025-01-23)
+- Fix create supplier invoice
 ### Version 1.8.3 (2025-01-16)
 - Upgrade to Dolibarr 20.0.3
 - Fix deserialization

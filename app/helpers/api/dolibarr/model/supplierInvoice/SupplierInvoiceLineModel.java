@@ -112,6 +112,7 @@ public class SupplierInvoiceLineModel {
     public SupplierInvoiceLineModel(Integer product_type, BigDecimal pu_ht, BigDecimal tva_tx, BigDecimal qty, String description) {
         this.product_type = product_type;
         this.pu_ht = pu_ht;
+        this.subprice = pu_ht;
         this.tva_tx = tva_tx;
         this.qty = qty;
         this.description = description;
